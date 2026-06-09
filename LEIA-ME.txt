@@ -1,0 +1,43 @@
+════════════════════════════════════════════════════════
+  TruckRoute Pro v5.0 — AMM Duarte Transportadora
+════════════════════════════════════════════════════════
+
+CORREÇÕES v5.0 (principais bugs corrigidos):
+──────────────────────────────────────────
+1. [CRÍTICO] Função json_response() estava FALTANDO em db.php
+   → Isso impedia TODAS as APIs de funcionar (salvar viagem, etc.)
+
+2. salvarViagem() usava event.target sem event no escopo
+   → Corrigido: botão passa referência explícita: onclick="salvarViagem(this)"
+
+3. Falta de try/catch nas APIs → erros silenciosos
+   → Todas as APIs agora tratam exceções e retornam JSON de erro
+
+4. session_start() chamado múltiplas vezes → warnings
+   → Corrigido com session_status() === PHP_SESSION_NONE
+
+5. Cookies de sessão sem flags de segurança (httponly, samesite)
+   → Corrigido em config.php
+
+6. Sem validação de propriedade nas APIs de viagem
+   → Motorista não conseguia acessar viagem de outro motorista
+
+INSTALAÇÃO RÁPIDA (hospedagem compartilhada):
+──────────────────────────────────────────────
+1. Faça upload de TODOS os arquivos para public_html/truckroute/
+2. Crie o banco MySQL pelo painel do seu host (cPanel/Plesk)
+3. Edite includes/config.php com suas credenciais do banco
+4. Mude APP_URL para https://seudominio.com.br/truckroute
+5. Acesse https://seudominio.com.br/truckroute/setup.php
+6. Após o setup, DELETE o arquivo setup.php por segurança
+
+LOGINS PADRÃO:
+──────────────
+Admin:     admin@ammduarte.com.br   / password
+Motorista: motorista@ammduarte.com.br / password
+⚠️  TROQUE AS SENHAS IMEDIATAMENTE após o primeiro acesso!
+
+PARA SUBIR COMO SITE (passo a passo completo):
+───────────────────────────────────────────────
+Veja o arquivo DEPLOY.md para instruções detalhadas.
+════════════════════════════════════════════════════════

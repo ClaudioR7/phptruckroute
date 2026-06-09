@@ -1,0 +1,40 @@
+# TruckRoute Pro — Apache config
+Options -Indexes
+ServerSignature Off
+
+# Charset padrão
+AddDefaultCharset UTF-8
+
+# Bloquear acesso a arquivos sensíveis
+<FilesMatch "\.(sql|log|env|gitignore|md|txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Bloquear acesso a diretórios internos
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^logs/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# Cache de assets estáticos
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|woff2|woff)$">
+    Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+
+# Segurança de cabeçalhos
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# PHP
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 60
+</IfModule>

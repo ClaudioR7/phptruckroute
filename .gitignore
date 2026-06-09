@@ -1,0 +1,16 @@
+# Configurações locais (NUNCA commitar)
+includes/config.local.php
+.env
+
+# Logs
+logs/
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Dependências (se usar composer)
+vendor/
