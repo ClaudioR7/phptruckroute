@@ -1,5 +1,4 @@
 <?php
-die("INDEX ATUALIZADO");
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $erro = 'E-mail ou senha inválidos.';
             }
         } catch(Exception $e) {
-            die($e->getMessage());
+            die("ERRO REAL: " . $e->getMessage());
         }
     } else {
         $erro = 'Preencha todos os campos.';
