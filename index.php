@@ -2,6 +2,11 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 
+echo "<pre>";
+var_dump(getenv('MYSQLHOST'), getenv('MYSQLPORT'), getenv('MYSQLDATABASE'), getenv('MYSQLUSER'));
+echo "</pre>";
+exit;
+
 if (!empty($_SESSION['usuario_id'])) {
     header('Location: ' . APP_URL . '/pages/dashboard.php'); exit;
 }
