@@ -1,0 +1,9 @@
+{
+    auto_https off
+}
+
+:{$PORT} {
+    root * .
+    php_server
+    file_server
+}
