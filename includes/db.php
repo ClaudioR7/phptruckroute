@@ -8,8 +8,6 @@ function get_db(): PDO {
     static $pdo = null;
     if ($pdo) return $pdo;
     $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
-    var_dump($host, $port, $db, $user);
-    exit;
     $pdo = new PDO($dsn, $user, $pass, [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
