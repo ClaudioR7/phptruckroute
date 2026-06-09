@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $erro = 'E-mail ou senha inválidos.';
             }
         } catch(Exception $e) {
-            $erro = 'Erro ao conectar ao banco. Verifique as configurações.';
+            die($e->getMessage());
         }
     } else {
         $erro = 'Preencha todos os campos.';
