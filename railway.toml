@@ -1,6 +1,0 @@
-[deploy]
-<<<<<<< HEAD
-startCommand = "php -S 0.0.0.0:$PORT -t ."
-=======
-startCommand = "php -S 0.0.0.0:$PORT -t /app"
->>>>>>> 50b2bf6337bbe203eb792cda6db99db9718874ab
